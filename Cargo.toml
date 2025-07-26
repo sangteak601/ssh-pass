@@ -4,6 +4,15 @@ description = "A tool to manage SSH passwords with support for jump hosts."
 version = "0.1.0"
 edition = "2024"
 
+[package.metadata.deb]
+maintainer = "Sangtaek Lee <sangteak601@gmail.com>"
+copyright = "2025, Sangtaek Lee"
+license-file = ["LICENSE"]
+assets = [
+    ["target/release/ssh-pass", "usr/bin/", "755"],
+]
+
+
 [dependencies]
 clap = { version = "4.5.41", features = ["derive"] }
 serde = { version = "1.0.219", features = ["derive"] }

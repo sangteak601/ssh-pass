@@ -1,0 +1,12 @@
+[package]
+name = "ssh-pass"
+description = "A tool to manage SSH passwords with support for jump hosts."
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5.41", features = ["derive"] }
+serde = { version = "1.0.219", features = ["derive"] }
+expectrl = { git = "https://github.com/zhiburt/expectrl.git", branch = "main" }
+serde_yaml = "0.9.34"
+termion = "4.0.5"

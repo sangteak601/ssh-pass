@@ -1,0 +1,6 @@
+_ssh_pass_completions() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=( $(ssh-pass --show "$cur") )
+}
+
+complete -F _ssh_pass_completions ssh-pass

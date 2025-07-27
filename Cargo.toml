@@ -10,6 +10,7 @@ copyright = "2025, Sangtaek Lee"
 license-file = ["LICENSE"]
 assets = [
     ["target/release/ssh-pass", "usr/bin/", "755"],
+    ["install/bash_completion", "etc/bash_completion.d/ssh_pass_completion", "644"],
 ]
 
 

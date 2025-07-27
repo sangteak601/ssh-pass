@@ -11,25 +11,6 @@ use ssh_pass::{Cli, Config, load_config};
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Cli = Cli::parse();
 
-    if let Some(prefix) = &args.show {
-        let config = match load_config() {
-            Ok(config) => config,
-            Err(_) => HashMap::new()
-        };
-        let filtered_hosts: Vec<String> = config
-            .keys()
-            .filter(|key| key.starts_with(prefix))
-            .cloned()
-            .collect();
-
-        if !filtered_hosts.is_empty() {
-            for host in filtered_hosts {
-                println!("{}", host);
-            }
-        }
-        return Ok(());
-    }
-
     let hosts = args.hosts;
 
     let config = match load_config() {

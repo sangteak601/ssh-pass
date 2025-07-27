@@ -7,10 +7,8 @@ const DEFAULT_CONFIG_FILE: &str = ".ssh_pass.yaml";
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 pub struct Cli {
-    #[arg(required = true, group = "op", help = "Host(s) to connect to. The last host is the main target and the others are jump hosts.")]
+    #[arg(required = true, help = "Host(s) to connect to. The last host is the main target and the others are jump hosts.")]
     pub hosts: Vec<String>,
-    #[arg(short, long, group = "op", help = "Show available hosts from the config file that start with the given prefix.")]
-    pub show: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

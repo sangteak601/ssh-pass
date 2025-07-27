@@ -1,6 +1,23 @@
 _ssh_pass_completions() {
     local cur="${COMP_WORDS[COMP_CWORD]}"
-    COMPREPLY=( $(ssh-pass --show "$cur") )
+    local config="${SSH_PASS_CONFIG_PATH:-$HOME/.ssh_pass.yaml}"
+
+    if [[ ! -f "$config" ]]; then
+        return
+    fi
+
+    # Extract lines like "host: value"
+    local hosts=()
+    while IFS= read -r line; do
+        line="${line%%#*}"          # Remove comments
+        line="$(echo "$line" | xargs)"  # Trim whitespace
+
+        if [[ "$line" =~ host:[[:space:]]*(.+) ]]; then
+            hosts+=("${BASH_REMATCH[1]}")
+        fi
+    done < "$config"
+
+    COMPREPLY=( $(compgen -W "${hosts[*]}" -- "$cur") )
 }
 
 complete -F _ssh_pass_completions ssh-pass

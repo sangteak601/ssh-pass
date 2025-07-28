@@ -67,27 +67,27 @@ Each entry includes:
 
 ### Download Prebuilt .deb Package
 
-1. Go to the [Releases](https://github.com/your-username/ssh-pass/releases) Page.
+1. Go to the [Releases](https://github.com/sangteak601/ssh-pass/releases) Page.
 2. Download the latest .deb package.
 3. Install it using dpkg:  
 ```bash
-    sudo dpkg -i ssh-pass_x.x.x_amd64.deb
+sudo dpkg -i ssh-pass_x.x.x_amd64.deb
 ```
 
 ### Build from Source
 
 Prerequisites
-- Rust (latest stable)
+- Rust
 - cargo build tool
 
 1. Clone and Build  
 ```bash
-git clone https://github.com/your-username/ssh-pass.git
+git clone https://github.com/sangteak601/ssh-pass.git
 cd ssh-pass
 cargo build --release
 ```
 
-2. Copy Files  
+1. Copy Files  
 ```bash
 sudo cp target/release/ssh-pass /usr/local/bin/
 sudo cp install/bash_completion /etc/bash_completion.d/ssh_pass_completion

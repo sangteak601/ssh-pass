@@ -87,7 +87,7 @@ cd ssh-pass
 cargo build --release
 ```
 
-1. Copy Files  
+2. Copy Files  
 ```bash
 sudo cp target/release/ssh-pass /usr/local/bin/
 sudo cp install/bash_completion /etc/bash_completion.d/ssh_pass_completion
